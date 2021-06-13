@@ -5,7 +5,7 @@ using DeckSorter.Models;
 
 namespace DeckSorter.Repositories
 {
-    public class DeckRepository : IDeckRepository
+    public class InMemoryDeckRepository : IDeckRepository
     {
         private readonly Dictionary<string, Deck> store = new();
         

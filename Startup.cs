@@ -33,7 +33,7 @@ namespace DeckSorter
         {
             services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
-            services.AddSingleton<IDeckRepository, DeckRepository>();
+            services.AddSingleton<IDeckRepository, InMemoryDeckRepository>();
             services.AddSingleton<IDeckService, DeckService>();
 
             services.AddControllers()
