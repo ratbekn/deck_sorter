@@ -1,6 +1,6 @@
 ﻿namespace DeckSorter.Models
 {
-    public enum PlayingCardSuit
+    public enum CardSuit
     {
         Hearts,
         Tiles,
