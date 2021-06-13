@@ -32,5 +32,10 @@ namespace DeckSorter.Services
         {
             return await deckRepository.Find(name);
         }
+
+        public async Task Delete(string name)
+        {
+            await deckRepository.Delete(name);
+        }
     }
 }

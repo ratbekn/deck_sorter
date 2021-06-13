@@ -7,5 +7,6 @@ namespace DeckSorter.Services
     {
         public Task<Deck> Create(string name);
         public Task<Deck?> Find(string name);
+        public Task Delete(string name);
     }
 }

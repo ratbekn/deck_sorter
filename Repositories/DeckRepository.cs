@@ -17,5 +17,10 @@ namespace DeckSorter.Repositories
         {
             return await Task.Run(() => store.TryGetValue(name, out var deck) ? deck : null);
         }
+
+        public async Task Delete(string name)
+        {
+            await Task.Run(() => store.Remove(name));
+        }
     }
 }

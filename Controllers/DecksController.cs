@@ -36,5 +36,13 @@ namespace DeckSorter.Controllers
 
             return Ok(deck);
         }
+
+        [HttpDelete("{name}")]
+        public async Task<ActionResult> Delete(string name)
+        {
+            await deckService.Delete(name);
+
+            return Ok();
+        }
     }
 }
