@@ -2,13 +2,13 @@
 {
     public class Card
     {
-        private int rank;
-        private CardSuit suit;
+        public CardSuit Suit { get; }
+        public CardRank Rank { get; }
 
-        public Card(int rank, CardSuit suit)
+        public Card(CardRank rank, CardSuit suit)
         {
-            this.rank = rank;
-            this.suit = suit;
+            Suit = suit;
+            Rank = rank;
         }
     }
 }

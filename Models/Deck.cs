@@ -4,13 +4,13 @@ namespace DeckSorter.Models
 {
     public class Deck
     {
-        private string name;
-        private IEnumerable<Card> cards;
+        public string Name { get; }
+        public IEnumerable<Card> Cards { get; }
 
         public Deck(string name, IEnumerable<Card> cards)
         {
-            this.name = name;
-            this.cards = cards;
+            Name = name;
+            Cards = cards;
         }
     }
 }

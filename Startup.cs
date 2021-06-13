@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using DeckSorter.Models;
+using DeckSorter.Repositories;
+using DeckSorter.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,7 +33,11 @@ namespace DeckSorter
         {
             services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
-            services.AddControllers();
+            services.AddSingleton<IDeckRepository, DeckRepository>();
+            services.AddSingleton<IDeckService, DeckService>();
+
+            services.AddControllers()
+                .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DeckSorter", Version = "v1" });
