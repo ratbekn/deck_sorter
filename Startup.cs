@@ -35,6 +35,7 @@ namespace DeckSorter
 
             services.AddSingleton<IDeckRepository, InMemoryDeckRepository>();
             services.AddSingleton<IDeckService, DeckService>();
+            services.AddSingleton<IShuffler, SimpleShuffler>();
 
             services.AddControllers()
                 .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));

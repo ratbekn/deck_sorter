@@ -50,5 +50,20 @@ namespace DeckSorter.Controllers
         {
             return await deckService.GetAllNames();
         }
+
+        [HttpPost("{name}")]
+        public async Task<ActionResult> ShuffleDeck(string name)
+        {
+            var deck = await deckService.Find(name);
+
+            if (deck == null)
+            {
+                return NotFound();
+            }
+            
+            deckService.ShuffleDeck(deck);
+
+            return Ok();
+        }
     }
 }
