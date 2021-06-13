@@ -27,5 +27,10 @@ namespace DeckSorter.Services
 
             return newDeck;
         }
+
+        public async Task<Deck?> Find(string name)
+        {
+            return await deckRepository.Find(name);
+        }
     }
 }

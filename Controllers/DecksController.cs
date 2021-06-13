@@ -23,5 +23,18 @@ namespace DeckSorter.Controllers
 
             return Created($"/decks/{name}", newDeck);
         }
+
+        [HttpGet("{name}")]
+        public async Task<ActionResult<Deck>> Find(string name)
+        {
+            var deck = await deckService.Find(name);
+
+            if (deck == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(deck);
+        }
     }
 }
