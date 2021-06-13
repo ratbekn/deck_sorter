@@ -8,5 +8,6 @@ namespace DeckSorter.Repositories
         public Task Insert(Deck deck);
         public Task<Deck?> Find(string name);
         public Task Delete(string name);
+        public Task<string[]> GetAllNames();
     }
 }

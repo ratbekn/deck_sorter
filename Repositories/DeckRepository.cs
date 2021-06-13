@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using DeckSorter.Models;
 
@@ -21,6 +22,11 @@ namespace DeckSorter.Repositories
         public async Task Delete(string name)
         {
             await Task.Run(() => store.Remove(name));
+        }
+
+        public async Task<string[]> GetAllNames()
+        {
+            return await Task.Run(() => store.Keys.ToArray());
         }
     }
 }

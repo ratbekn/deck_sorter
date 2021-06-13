@@ -44,5 +44,11 @@ namespace DeckSorter.Controllers
 
             return Ok();
         }
+
+        [HttpGet]
+        public async Task<ActionResult<string[]>> GetAllNames()
+        {
+            return await deckService.GetAllNames();
+        }
     }
 }
